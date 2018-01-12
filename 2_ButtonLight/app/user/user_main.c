@@ -27,7 +27,7 @@ void  user_init()//初始化
 {
 	uint8 bz=0;
 
-    uart_init(57600, 57600);//设置串口0和串口1的波特率
+    uart_init(115200, 115200);//设置串口0和串口1的波特率
 
     PIN_FUNC_SELECT(PERIPHS_IO_MUX_MTMS_U, FUNC_GPIO14);//选择GPIO14
     GPIO_OUTPUT_SET(GPIO_ID_PIN(14), 1);//GPIO14为高

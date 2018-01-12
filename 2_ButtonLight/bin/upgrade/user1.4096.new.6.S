@@ -1651,9 +1651,9 @@ Disassembly of section .text:
 	...
 
 40101040 <delay_ms>:
-//#include "upgrade.h"
-//#include "user_config.h"
-
+#include "osapi.h"  //串口1需要的头文件
+#include "user_interface.h" //WIFI连接需要的头文件
+#include "gpio.h"  //端口控制需要的头文件
 
 void delay_ms(uint16 x)
 {
@@ -1667,8 +1667,8 @@ void delay_ms(uint16 x)
 	{
 	  os_delay_us(1000);
 40101050:	e8a322        	movi	a2, 0x3e8
-//#include "user_config.h"
-
+#include "user_interface.h" //WIFI连接需要的头文件
+#include "gpio.h"  //端口控制需要的头文件
 
 void delay_ms(uint16 x)
 {
@@ -1678,8 +1678,8 @@ void delay_ms(uint16 x)
 	  os_delay_us(1000);
 40101056:	ff4501        	l32r	a0, 40100d6c <system_restart_core+0x54>
 40101059:	0000c0        	callx0	a0
-//#include "user_config.h"
-
+#include "user_interface.h" //WIFI连接需要的头文件
+#include "gpio.h"  //端口控制需要的头文件
 
 void delay_ms(uint16 x)
 {
@@ -1842,8 +1842,8 @@ void delay_ms(uint16 x)
 40101103:	f4c0c0        	extui	a12, a12, 0, 16
 40101106:	ff1901        	l32r	a0, 40100d6c <system_restart_core+0x54>
 40101109:	0000c0        	callx0	a0
-//#include "user_config.h"
-
+#include "user_interface.h" //WIFI连接需要的头文件
+#include "gpio.h"  //端口控制需要的头文件
 
 void delay_ms(uint16 x)
 {
