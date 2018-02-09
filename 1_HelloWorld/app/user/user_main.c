@@ -18,7 +18,7 @@
 
 void user_init(void)
 {
-    uart_init(115200, 115200);//设置串口0和串口1的波特率
+    uart_init(74880, 74880);//设置串口0和串口1的波特率
     uart0_sendStr("\r\nSDK version:");
     uart0_sendStr(system_get_sdk_version());
 	char buf[64]={0};
