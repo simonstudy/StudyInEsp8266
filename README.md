@@ -27,56 +27,29 @@ CSDN博客博文：[http://blog.csdn.net/xh870189248/article/details/77985541](h
 | 《**12_Esp8266-Alink_OneLED**》|接入阿里智能控制LED。|http://blog.csdn.net/xh870189248/article/details/78807018|
 | 《**13_ESP8266_smartConfi_MQTT**》|Mqtt协议+smartConfig控制一盏LED（基于2.1.0版本）|http://blog.csdn.net/xh870189248/article/details/79052347|
 | 《**14_ESP8266_smartConfig_Mqtt**》|Mqtt协议+smartConfig控制一盏LED（基于2.2.0版本）|http://blog.csdn.net/xh870189248/article/details/79052347|
+| 《**14_ESP8266_smartConfig_Mqtt**》|Mqtt协议+smartConfig控制一盏LED（基于2.2.0版本）|http://blog.csdn.net/xh870189248/article/details/79052347|
+| 《**15_ESP8266_Timer2**》|2018-1-17 （基于NONOS 2.2.0版本）硬件中断定时器控制闪烁一盏LED|http://blog.csdn.net/xh870189248/article/details/78155357|
+| 《**16_ESP8266_RTOS_SDK_V1.5.0**》|（基于FreeRtos 1.5.0版本）的 hello world 串口打印工程模板|http://blog.csdn.net/xh870189248/article/details/79103373|
+| 《**17_ESP8266_RedInfra1883**》|乐鑫8266的红外线遥控控制1883固件|http://blog.csdn.net/xh870189248/article/details/79486075|
 | 《**Gizkit_soc_pet**》| 机智云Gokit2、3扩展板的soc方案宠物屋代码。 |...|
 | 《**GokitTimerLight**》| 基于机智云平台soc方案定时开启一个LED的源码。 |http://club.gizwits.com/thread-7787-1-1.html|
  
 
-
 **************************************************************************************************
 
-
-## 学习借鉴：
- 
-- FreeRTOS系统讲解一期视频教程 -  [http://open.21ic.com/open/lesson/460](http://open.21ic.com/open/lesson/460 "http://open.21ic.com/open/lesson/460")
-
-- FreeRTOS系统讲解二期视频教程 -  [http://open.21ic.com/open/lesson/560](http://open.21ic.com/open/lesson/560 "http://open.21ic.com/open/lesson/560")
-
+### 小徐精华总结：
 **************************************************************************************************
-
-
-<p align="center">
-  <img src="http://h5xuhong.oss-cn-hongkong.aliyuncs.com/8266%E5%9B%BE%E7%89%87/aliyun8989.png" width="800px" height="400px" alt="Banner" />
-</p>
-
-以下是博主的总结：
-**************************************************************************************************
-
-#### ①、最小系统电路图：搭建开发环境，开始一个“hellow world”串口打印： http://blog.csdn.net/xh870189248/article/details/77985541
-
-![8266最小系统](http://h5xuhong.oss-cn-hongkong.aliyuncs.com/8266%E5%9B%BE%E7%89%87/%E6%9C%80%E5%B0%8F%E7%B3%BB%E7%BB%9F.png) 
-
-********************************************************************************
-#### ②、按钮点亮一个LED灯电路图： http://blog.csdn.net/xh870189248/article/details/78126689
- ![8266最小系统](http://h5xuhong.oss-cn-hongkong.aliyuncs.com/8266%E5%9B%BE%E7%89%87/%E6%8C%89%E9%94%AE%E7%94%B5%E8%B7%AF%E5%9B%BE.png)
-
-********************************************************************************
-#### ③、使用软件定时器闪烁一个LED灯电路图： http://blog.csdn.net/xh870189248/article/details/78155357
- ![8266最小系统](http://img.blog.csdn.net/20171003165642605?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGg4NzAxODkyNDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+ #### 一 、 安信可的型号；
+ <img src="http://img.blog.csdn.net/20180310172639139" width="1000px" height="360px" alt="Banner" />
  
-********************************************************************************
-#### ④ 了解PWM，更为深入地用PWM控制一盏LED的亮度变化。： http://blog.csdn.net/xh870189248/article/details/78202224
- ![8266最小系统](http://img.blog.csdn.net/20171120102325475?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGg4NzAxODkyNDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
-********************************************************************************
-#### ④ 基于乐鑫的SDK的按键触发一键配网smartConfig模式代码。 ： http://blog.csdn.net/xh870189248/article/details/78677952
- ![8266最小系统](http://img.blog.csdn.net/20171202101331285?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGg4NzAxODkyNDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
-********************************************************************************
-#### ⑤  softAP热点配网模式原理，仿“机智云”定义自己的热点配网模式协议。 ： http://blog.csdn.net/xh870189248/article/details/78703905
- ![8266最小系统](http://img.blog.csdn.net/20171206150520238?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGg4NzAxODkyNDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
-********************************************************************************
-#### ⑥  Windows系统搭建8266的本地Mqtt服务器，局域网点亮一盏LED灯。 ： http://blog.csdn.net/xh870189248/article/details/78761948
- ![8266最小系统](http://img.blog.csdn.net/20171212104540337?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGg4NzAxODkyNDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+ #### 二 、 烧录问题；
+ >所有自己编译出来的工程，都是有四个文件要烧录的，其中2个是必须烧录的（防止初始化失败），这2个文件分别是 esp_init_data_default.bin 和blank.bin;
  
-
+ >烧录地址根据您的8266型号区别，我们最平常用的是安信可8266-12系列的，这个是32Mbit，也就是4M flash ,所以他们的地址分别是 0x3FC000 和 0x3FE000 , 最后2个的烧录文件地址看编译之后结果而决定！也即是不一定是0x10000，有可能是0x2000 , 这个根据SDK的版本有关系。所以大家还是留心点！
+ 
+ #### 三 、 8266其他好玩的项目收集汇总；
+ 
+ - [x] 8266的5路PWM,允许占空比从0％到100％，步长为200ns。1kHz PWM是5000步，19kHz是256步（8位分辨率）。
+    https://github.com/StefanBruens/ESP8266_new_pwm
+ 
+ 
