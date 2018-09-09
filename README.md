@@ -31,6 +31,10 @@ CSDN博客博文：[http://blog.csdn.net/xh870189248/article/details/77985541](h
 | 《**15_ESP8266_Timer2**》|2018-1-17 （基于NONOS 2.2.0版本）硬件中断定时器控制闪烁一盏LED|http://blog.csdn.net/xh870189248/article/details/78155357|
 | 《**16_ESP8266_RTOS_SDK_V1.5.0**》|（基于FreeRtos 1.5.0版本）的 hello world 串口打印工程模板|http://blog.csdn.net/xh870189248/article/details/79103373|
 | 《**17_ESP8266_RedInfra1883**》|乐鑫8266的红外线遥控控制1883固件|http://blog.csdn.net/xh870189248/article/details/79486075|
+| 《**18_Esp8266_quickNet_5**》|乐鑫8266的自研的快速开关五次，开-关-开-关-开，之后灯光闪烁，进去配网模式|http://blog.csdn.net/xh870189248/article/details/79486075|
+| 《**19_Esp8266_ds18b20_dht11**》|乐鑫esp8266驱动 ds18b20、dht11 温湿度传感器，采集温湿度传感器到服务器。|https://blog.csdn.net/xh870189248/article/details/80284827|
+| 《**20_SmartConfigInterface**》|使用C语言对`smartConfig`的二次封装。|https://blog.csdn.net/xh870189248/article/details/80375188|
+| 《**21_Esp8266_NOW**》|利用乐鑫的`snow`进行网关组网。|https://blog.csdn.net/xh870189248/article/details/80631739|
 | 《**Gizkit_soc_pet**》| 机智云Gokit2、3扩展板的soc方案宠物屋代码。 |...|
 | 《**GokitTimerLight**》| 基于机智云平台soc方案定时开启一个LED的源码。 |http://club.gizwits.com/thread-7787-1-1.html|
  
@@ -51,5 +55,30 @@ CSDN博客博文：[http://blog.csdn.net/xh870189248/article/details/77985541](h
  
  - [x] 8266的5路PWM,允许占空比从0％到100％，步长为200ns。1kHz PWM是5000步，19kHz是256步（8位分辨率）。
     https://github.com/StefanBruens/ESP8266_new_pwm
+    
+ #### 四 、 如何判断上次掉电重启的原因；
+  >这个代码可以判断是否软件复位或者硬件复位，或者判断是否正常重启（包括看门狗复位、非法指针）；
+
+
+```
+    struct rst_info *rtc_info = system_get_rst_info();
+   
+    printf( "reset reason: %x\n", rtc_info->reason);
+  
+    if (rtc_info->reason == REASON_WDT_RST ||
+        rtc_info->reason == REASON_EXCEPTION_RST ||
+        rtc_info->reason == REASON_SOFT_WDT_RST){
+        if (rtc_info->reason == REASON_EXCEPTION_RST)
+        {
+            GIZWITS_LOG("Fatal exception (%d):\n", rtc_info->exccause);
+        }
+        printf( "epc1=0x%08x, epc2=0x%08x, epc3=0x%08x, excvaddr=0x%08x, depc=0x%08x\n",
+                rtc_info->epc1, rtc_info->epc2, rtc_info->epc3, rtc_info->excvaddr, rtc_info->depc);
+    }
+
+
+```
+ 
+ 
  
  
