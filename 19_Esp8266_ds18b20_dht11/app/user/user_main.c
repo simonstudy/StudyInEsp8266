@@ -8,7 +8,8 @@
 
 os_timer_t os_timer;
 
-void hw_test_timer_cb(void) {
+void hw_test_timer_cb(void)
+{
 
 	os_printf("ds18b20采集的温度: %d \n\n",
 			(int) (Ds18b20ReadTemp() * 0.0625 + 0.005));
@@ -18,9 +19,10 @@ void hw_test_timer_cb(void) {
 	os_printf("- - - - - - - - - - - - - - - - - - - - \r\n");
 }
 
-void ICACHE_FLASH_ATTR user_init(void) {
+void ICACHE_FLASH_ATTR user_init(void)
+{
 
-	uart_init(57600, 57600);
+	uart_init(74880, 74880);
 	os_printf("SDK version:%s\n", system_get_sdk_version());
 
 	Ds18b20Init();
@@ -36,11 +38,13 @@ void ICACHE_FLASH_ATTR user_init(void) {
 
 }
 
-uint32 ICACHE_FLASH_ATTR user_rf_cal_sector_set(void) {
+uint32 ICACHE_FLASH_ATTR user_rf_cal_sector_set(void)
+{
 	enum flash_size_map size_map = system_get_flash_size_map();
 	uint32 rf_cal_sec = 0;
 
-	switch (size_map) {
+	switch (size_map)
+	{
 	case FLASH_SIZE_4M_MAP_256_256:
 		rf_cal_sec = 128 - 5;
 		break;
@@ -72,5 +76,6 @@ uint32 ICACHE_FLASH_ATTR user_rf_cal_sector_set(void) {
 	return rf_cal_sec;
 }
 
-void ICACHE_FLASH_ATTR user_rf_pre_init(void) {
+void ICACHE_FLASH_ATTR user_rf_pre_init(void)
+{
 }

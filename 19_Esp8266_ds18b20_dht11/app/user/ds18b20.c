@@ -7,7 +7,8 @@
 
 int DSPORT = 14; //(为gpio14接口)
 
-void Delay1ms(int y) {
+void Delay1ms(int y)
+{
 	os_delay_us(y * 1000);
 }
 /*******************************************************************************
@@ -17,7 +18,8 @@ void Delay1ms(int y) {
  * 输    出         : 初始化成功返回1，失败返回0
  *******************************************************************************/
 
-uint8 Ds18b20Init() {
+uint8 Ds18b20Init()
+{
 	int i;
 
 	PIN_FUNC_SELECT(PERIPHS_IO_MUX_MTMS_U, FUNC_GPIO14);
@@ -29,7 +31,7 @@ uint8 Ds18b20Init() {
 		Delay1ms(1);
 		i++;
 		if (i > 5)	//等待>5MS
-				{
+		{
 			return 0;	//初始化失败
 		}
 
@@ -44,10 +46,12 @@ uint8 Ds18b20Init() {
  * 输    出         : 无
  *******************************************************************************/
 
-void Ds18b20WriteByte(uint8 dat) {
+void Ds18b20WriteByte(uint8 dat)
+{
 	int i, j;
 
-	for (j = 0; j < 8; j++) {
+	for (j = 0; j < 8; j++)
+	{
 		GPIO_OUTPUT_SET(DSPORT, 0);	     	  //每写入一位数据之前先把总线拉低1us
 		i++;
 		GPIO_OUTPUT_SET(DSPORT, dat & 0x01);	     	  //然后写入一个数据，从最低位开始
@@ -63,10 +67,12 @@ void Ds18b20WriteByte(uint8 dat) {
  * 输    出         : 无
  *******************************************************************************/
 
-uint8 Ds18b20ReadByte() {
+uint8 Ds18b20ReadByte()
+{
 	uint8 byte, bi;
 	int i, j;
-	for (j = 8; j > 0; j--) {
+	for (j = 8; j > 0; j--)
+	{
 		GPIO_OUTPUT_SET(DSPORT, 0);	//先将总线拉低1us
 		i++;
 		GPIO_OUTPUT_SET(DSPORT, 1);	  //然后释放总线
@@ -86,7 +92,8 @@ uint8 Ds18b20ReadByte() {
  * 输    出         : 无
  *******************************************************************************/
 
-void Ds18b20ChangTemp() {
+void Ds18b20ChangTemp()
+{
 	Ds18b20Init();
 	Delay1ms(1);
 	Ds18b20WriteByte(0xcc);		//跳过ROM操作命令		 
@@ -101,7 +108,8 @@ void Ds18b20ChangTemp() {
  * 输    出         : 无
  *******************************************************************************/
 
-void Ds18b20ReadTempCom() {
+void Ds18b20ReadTempCom()
+{
 
 	Ds18b20Init();
 	Delay1ms(1);
@@ -115,7 +123,8 @@ void Ds18b20ReadTempCom() {
  * 输    出         : 无
  *******************************************************************************/
 
-int Ds18b20ReadTemp() {
+int Ds18b20ReadTemp()
+{
 	int temp = 0;
 	uint8 tmh, tml;
 	Ds18b20ChangTemp();			 	//先写入转换命令
