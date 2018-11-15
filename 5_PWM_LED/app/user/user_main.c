@@ -27,10 +27,15 @@ void ICACHE_FLASH_ATTR display(void *arg)
 }
 void user_init()
 {
-	uint32 pwm_duty_init[3]={0};
-	uint32 io_info[][3]={{PERIPHS_IO_MUX_MTDI_U,FUNC_GPIO12,12},{PERIPHS_IO_MUX_MTCK_U,FUNC_GPIO13,13},{PERIPHS_IO_MUX_MTDO_U,FUNC_GPIO15,15},};
-	pwm_init(1000,pwm_duty_init,3,io_info);//初始化 PWM，1000周期,pwm_duty_init占空比,3通道数,io_info各通道的 GPIO 硬件参数
-	for(x=0;x<3;x++)
+	uint32 pwm_duty_init[3] =
+	{ 0 };
+	uint32 io_info[][3] =
+	{
+	{ PERIPHS_IO_MUX_MTDI_U, FUNC_GPIO12, 12 },
+	{ PERIPHS_IO_MUX_MTCK_U, FUNC_GPIO13, 13 },
+	{ PERIPHS_IO_MUX_MTDO_U, FUNC_GPIO15, 15 }, };
+	pwm_init(1000, pwm_duty_init, 3, io_info); //初始化 PWM，1000周期,pwm_duty_init占空比,3通道数,io_info各通道的 GPIO 硬件参数
+	for (x = 0; x < 3; x++)
 	{
 		 type=x;
 	     pwm_set_duty(duty,type);//设置 PWM 某个通道信号的占空比, duty 占空比的值, type当前要设置的 PWM 通道
